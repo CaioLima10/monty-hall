@@ -1,16 +1,11 @@
 
-interface IDoorProps{
-    number: number
-    present: boolean
-    selected: boolean
-    open: boolean
-}
 
-export default class Door<IDoorProps>{
-    #number
-    #present
-    #selected
-    #open
+
+export default class DoorModel{
+    #number: number
+    #present: boolean
+    #selected: boolean
+    #open: boolean
 
     constructor(number: number , present = false , selected = false , open = false){
         this.#number = number
@@ -37,17 +32,17 @@ export default class Door<IDoorProps>{
 
     deselect(){
         const seleted = false
-        return new Door(this.number , this.present , seleted , this.open)
+        return new DoorModel(this.number , this.present , seleted , this.open)
     }
 
     alterSelected(){
         const seleted = !this.selected
-        return new Door(this.number , this.present , seleted , this.open)
+        return new DoorModel(this.number , this.present , seleted , this.open)
     }
 
     openDoor(){
         const openDoor = true
-        return new Door(this.number , this.present , this.selected , openDoor) 
+        return new DoorModel(this.number , this.present , this.selected , openDoor) 
     }
 
 }
