@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "../styles/Door.module.css"
 import DoorModel from '@/model/Door'
+import Present from './Present'
 
 
 interface IDoorProps{
@@ -33,7 +34,7 @@ export default function Door(props: IDoorProps) {
   return (
     <div className={styles.area} onClick={toggleSelection}>
       <div className={`${styles.frame} ${selected}`}>
-        { door.open ? false : renderDoor() }
+        { door.close ? renderDoor() : door.present ? <Present/> : false  }
       </div>
         <div className={styles.floor}></div>
     </div>
